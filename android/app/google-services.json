@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "789328444858",
+    "project_id": "tomata-877aa",
+    "storage_bucket": "tomata-877aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789328444858:android:08285aed6eed084b923183",
+        "android_client_info": {
+          "package_name": "com.cis.tomato.tomato"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDcm0MCgodjL5f8GfkvzdEDF_iKJJcNvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
