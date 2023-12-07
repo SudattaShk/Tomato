@@ -3,11 +3,13 @@ import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:tomato/Tomato_api/tomato_api.dart';
 
+/// A Flutter widget representing the Time Challenge game.
 class TimeChallenge extends StatefulWidget {
   @override
   _TimeChallengeState createState() => _TimeChallengeState();
 }
 
+/// The state class for the TimeChallenge widget.
 class _TimeChallengeState extends State<TimeChallenge> {
   String question = '';
   int solution = 0;
@@ -26,6 +28,7 @@ class _TimeChallengeState extends State<TimeChallenge> {
     startTimer();
   }
 
+  /// Fetches data for a new question from the Tomato API.
   Future<void> fetchData() async {
     try {
       final data = await TomatoApi.fetchData();
@@ -38,6 +41,7 @@ class _TimeChallengeState extends State<TimeChallenge> {
     }
   }
 
+  /// Checks the user's guess and updates points accordingly.
   void checkGuess() {
     if (guess == solution) {
       setState(() {
@@ -94,11 +98,13 @@ class _TimeChallengeState extends State<TimeChallenge> {
     }
   }
 
+  /// Skips the current question and fetches a new one.
   void skipQuestion() {
     fetchData();
     controller.clear();
   }
 
+  /// Ends the game and displays the final score.
   void endGame() {
     int elapsedTime = DateTime.now().difference(startTime).inSeconds;
     remainingTime -= elapsedTime;
@@ -130,6 +136,7 @@ class _TimeChallengeState extends State<TimeChallenge> {
     );
   }
 
+  /// Resets the game to its initial state.
   void resetGame() {
     setState(() {
       questions = 1;
@@ -141,6 +148,7 @@ class _TimeChallengeState extends State<TimeChallenge> {
     startTimer();
   }
 
+  /// Starts the timer that counts down the remaining time.
   void startTimer() {
     const oneSecond = Duration(seconds: 1);
     Timer.periodic(oneSecond, (timer) {
@@ -272,6 +280,7 @@ class _TimeChallengeState extends State<TimeChallenge> {
     );
   }
 
+  /// Builds an elevated button for the user to make a guess.
   ElevatedButton buildButton(int value) {
     return ElevatedButton(
       onPressed: () {

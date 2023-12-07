@@ -11,21 +11,23 @@ class RegistrationPage extends StatefulWidget {
   @override
   _RegistrationPageState createState() => _RegistrationPageState();
 }
-  // firebase
-  final _auth = FirebaseAuth.instance;
-
-  // string for displaying the error Message
-  String? errorMessage;
-
 
 class _RegistrationPageState extends State<RegistrationPage> {
+  // Controllers for user input fields
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
+
+  // Form key for form validation
   final _formKey = GlobalKey<FormState>();
 
+  // Firebase authentication instance
+  final _auth = FirebaseAuth.instance;
+
+  // Error message to display if registration fails
+  String? errorMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                // TextFormField for First Name
                 TextFormField(
                   controller: _firstNameController,
                   decoration: InputDecoration(
@@ -54,6 +57,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   },
                 ),
                 SizedBox(height: 20),
+
+                // TextFormField for Last Name
                 TextFormField(
                   controller: _lastNameController,
                   decoration: InputDecoration(
@@ -67,6 +72,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   },
                 ),
                 SizedBox(height: 20),
+
+                // TextFormField for Email
                 TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(
@@ -82,6 +89,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   },
                 ),
                 SizedBox(height: 20),
+
+                // TextFormField for Password
                 TextFormField(
                   controller: _passwordController,
                   decoration: InputDecoration(
@@ -103,6 +112,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   },
                 ),
                 SizedBox(height: 20),
+
+                // TextFormField for Confirm Password
                 TextFormField(
                   controller: _confirmPasswordController,
                   decoration: InputDecoration(
@@ -119,6 +130,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   },
                 ),
                 SizedBox(height: 20),
+
+                // ElevatedButton for registration
                 ElevatedButton(
                   onPressed: () {
                     _register(
@@ -138,9 +151,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
     );
   }
 
+  // Function to handle user registration
   void _register(String firstName, String lastName, String email, String password) async {
     if (_formKey.currentState!.validate()) {
       try {
+        // Creating a user with email and password
         await _auth
             .createUserWithEmailAndPassword(email: email, password: password)
             .then((value) => {postDetailsToFirestore()})
@@ -148,6 +163,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
           Fluttertoast.showToast(msg: e!.message);
         });
       } on FirebaseAuthException catch (error) {
+        // Handling different registration error cases
         switch (error.code) {
           case "email-already-in-use":
             errorMessage = "The account already exists for that email.";
@@ -169,25 +185,31 @@ class _RegistrationPageState extends State<RegistrationPage> {
       }
     }
   }
+
+  // Function to post user details to Firestore after successful registration
   postDetailsToFirestore() async {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? user = _auth.currentUser;
 
     UserModel userModel = UserModel();
 
-    // writing all the values
+    // Writing all the values to the user model
     userModel.email = user!.email;
     userModel.uid = user.uid;
     userModel.firstName = _firstNameController.text;
     userModel.lastName = _lastNameController.text;
     userModel.password = _passwordController.text;
 
+    // Adding the user details to Firestore
     await firebaseFirestore
         .collection("users")
         .doc(user.uid)
         .set(userModel.toMap());
+
+    // Displaying a toast message for successful account creation
     Fluttertoast.showToast(msg: "Account created successfully :) ");
 
+    // Navigating to the home page and removing all previous routes
     Navigator.pushAndRemoveUntil(
         (context),
         MaterialPageRoute(builder: (context) => HomePage()),

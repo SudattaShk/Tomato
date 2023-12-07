@@ -43,6 +43,7 @@ class DefaultFirebaseOptions {
     }
   }
 
+  /// Firebase options for the web platform.
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyCsOe7p6BITWcCYS3OLMqDnAV443MtjIzM',
     appId: '1:789328444858:web:22b6b93acd49ec6f923183',
@@ -52,6 +53,7 @@ class DefaultFirebaseOptions {
     storageBucket: 'tomata-877aa.appspot.com',
   );
 
+  /// Firebase options for the Android platform.
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCDcm0MCgodjL5f8GfkvzdEDF_iKJJcNvQ',
     appId: '1:789328444858:android:08285aed6eed084b923183',
@@ -60,6 +62,7 @@ class DefaultFirebaseOptions {
     storageBucket: 'tomata-877aa.appspot.com',
   );
 
+  /// Firebase options for the iOS platform.
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyC0v-Ov8v1-8OD3IIgBhbf_H1NDFRKjMyY',
     appId: '1:789328444858:ios:42a120c5b0b833d2923183',
@@ -69,6 +72,7 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.cis.tomato.tomato',
   );
 
+  /// Firebase options for the macOS platform.
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyC0v-Ov8v1-8OD3IIgBhbf_H1NDFRKjMyY',
     appId: '1:789328444858:ios:229c915cd6c455ae923183',

@@ -4,22 +4,24 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tomato/Pages/HomePage.dart';
 import 'package:tomato/Pages/RegistrationPage.dart';
 
-
+/// StatefulWidget for the Login Page.
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
+/// State class for the LoginPage.
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  // firebase
+  // Firebase authentication instance
   final _auth = FirebaseAuth.instance;
 
-  // string for displaying the error Message
+  // String for displaying the error message
   String? errorMessage;
 
   @override
@@ -86,17 +88,18 @@ class _LoginPageState extends State<LoginPage> {
                   "Don't have an account? Sign up",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
+                    ),
+                  ),
                 ),
-              ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
-    ),
     );
   }
 
+  /// Function to handle the login process.
   void _login(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       try {

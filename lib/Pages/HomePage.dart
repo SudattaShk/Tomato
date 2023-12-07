@@ -3,6 +3,7 @@ import 'package:tomato/game_modes/TimeChallenge.dart';
 import 'package:tomato/game_modes/TomatoClassic.dart';
 import 'LoginPage.dart';
 
+/// Flutter widget representing the home page of the Tomato Game application.
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,7 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 50),
             ElevatedButton(
               onPressed: () {
+                // Navigate to the TomatoClassic game mode
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => TomatoClassic()),
@@ -37,6 +39,7 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
+                // Navigate to the TimeChallenge game mode
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => TimeChallenge()),

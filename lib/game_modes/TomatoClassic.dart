@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import '../Tomato_api/tomato_api.dart';
 
+/// A Flutter widget representing the Tomato Classic game
 class TomatoClassic extends StatefulWidget {
   @override
   _TomatoClassicState createState() => _TomatoClassicState();
 }
 
+/// The state class for the TomatoClassic widget.
 class _TomatoClassicState extends State<TomatoClassic> {
   String question = '';
   int solution = 0;
@@ -19,6 +21,7 @@ class _TomatoClassicState extends State<TomatoClassic> {
     fetchData();
   }
 
+  /// Fetches data for a new question from the Tomato API.
   Future<void> fetchData() async {
     try {
       final data = await TomatoApi.fetchData();
@@ -31,6 +34,7 @@ class _TomatoClassicState extends State<TomatoClassic> {
     }
   }
 
+  /// Checks the user's guess and updates points accordingly.
   void checkGuess() {
     if (guess == solution) {
       setState(() {
@@ -85,6 +89,7 @@ class _TomatoClassicState extends State<TomatoClassic> {
     }
   }
 
+  /// Skips the current question and fetches a new one.
   void skipQuestion() {
     setState(() {
       points -= 2;
@@ -92,6 +97,7 @@ class _TomatoClassicState extends State<TomatoClassic> {
     fetchData();
   }
 
+  /// Ends the game and displays the final score.
   void endGame() {
     showDialog(
       context: context,
@@ -117,6 +123,7 @@ class _TomatoClassicState extends State<TomatoClassic> {
     );
   }
 
+  /// Resets the game to its initial state.
   void resetGame() {
     setState(() {
       round = 1;
@@ -226,6 +233,7 @@ class _TomatoClassicState extends State<TomatoClassic> {
     );
   }
 
+  /// Builds an elevated button for the user to make a guess.
   ElevatedButton buildButton(int value) {
     return ElevatedButton(
       onPressed: () {
