@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tomato/LoginPage.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:tomato/firebase_options.dart';
+import 'package:tomato/Pages/LoginPage.dart';
+import 'package:tomato/firebase/firebase_options.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,8 +1,9 @@
-import 'package:tomato/HomePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tomato/RegistrationPage.dart';
+import 'package:tomato/Pages/HomePage.dart';
+import 'package:tomato/Pages/RegistrationPage.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

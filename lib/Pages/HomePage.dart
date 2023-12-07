@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tomato/TomatoClassic.dart';
-import 'package:tomato/TimeChallenge.dart';
+import 'package:tomato/game_modes/TimeChallenge.dart';
+import 'package:tomato/game_modes/TomatoClassic.dart';
 import 'LoginPage.dart';
 
 class HomePage extends StatelessWidget {

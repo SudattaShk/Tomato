@@ -1,7 +1,7 @@
-import 'package:tomato/HomePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:tomato/Pages/HomePage.dart';
 import 'package:tomato/model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -94,7 +94,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     } else if (!RegExp(
                         r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$')
                         .hasMatch(value)) {
-                      return 'Password should contain at least one uppercase letter, one lowercase letter, and one number';
+                      return 'Password should contain at least:\n'
+                          'One Uppercase Letter\n'
+                        'One Lowercase Letter\n'
+                        'One Number';
                     }
                     return null;
                   },
@@ -167,10 +170,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
     }
   }
   postDetailsToFirestore() async {
-    // calling our firestore
-    // calling our user model
-    // sedning these values
-
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? user = _auth.currentUser;
 
