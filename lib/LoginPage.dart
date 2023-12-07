@@ -27,21 +27,26 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: Text('Login Page'),
       ),
-      body: Padding(
+    body: SingleChildScrollView(
+      child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Image.asset(
+                'assets/logo.jpg',
+                height: 150,
+              ),
               TextFormField(
                 controller: _usernameController,
                 decoration: InputDecoration(
-                  labelText: 'Username/Email',
+                  labelText: 'Email',
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your username or email';
+                    return 'Please enter your email';
                   }
                   return null;
                 },
@@ -79,7 +84,6 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(
                   "Don't have an account? Sign up",
                   style: TextStyle(
-                    color: Colors.blue,
                     decoration: TextDecoration.underline,
                 ),
               ),
@@ -88,6 +92,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
+    ),
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tomato/TomatoClassic.dart';
 import 'package:tomato/TimeChallenge.dart';
+import 'LoginPage.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -13,6 +14,11 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'assets/logo.jpg',
+              height: 150,
+            ),
+            SizedBox(height: 50),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -47,20 +53,12 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Add code to navigate to the 'Leaderboard' screen here
-              },
-              child: Text(
-                'Leaderboard',
-                style: TextStyle(fontSize: 20),
-              ),
-              style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all(Size(250, 60)),
-              ),
-            ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                // Add code to handle logout here
+                // Navigate to the LoginPage and remove all previous routes
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                      (Route<dynamic> route) => false,
+                );
               },
               child: Text(
                 'Logout',
