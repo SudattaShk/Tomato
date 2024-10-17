@@ -12,7 +12,20 @@
           "package_name": "com.cis.tomato.tomato"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "789328444858-b8qu75td1spi51hni384fb52dq4q9dm0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cis.tomato.tomato",
+            "certificate_hash": "3469ca6e170450ab99984cf259968e800b720a58"
+          }
+        },
+        {
+          "client_id": "789328444858-560rck1blihbjprrt9522gf2jnl55gar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCDcm0MCgodjL5f8GfkvzdEDF_iKJJcNvQ"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789328444858-560rck1blihbjprrt9522gf2jnl55gar.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "789328444858-5qpl8el5g90dje0r4fr4d2q0730n18rl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cis.tomato.tomato"
+              }
+            }
+          ]
         }
       }
     }

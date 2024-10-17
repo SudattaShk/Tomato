@@ -24,6 +24,7 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+
 android {
     namespace "com.cis.tomato.tomato"
     compileSdkVersion flutter.compileSdkVersion
@@ -47,8 +48,8 @@ android {
         applicationId "com.cis.tomato.tomato"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion 33
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -67,5 +68,6 @@ flutter {
 }
 
 dependencies {
-    implementation platform('com.google.firebase:firebase-bom:32.6.0')
+    implementation platform('com.google.firebase:firebase-bom:33.3.0')
+
 }
